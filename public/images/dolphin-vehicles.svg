@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 150" fill="none">
+  <title>Vehículos que estacionan en Dolphin</title>
+  <rect width="360" height="150" rx="20" fill="#E8EFF8"/>
+  <circle cx="292" cy="37" r="20" fill="#F2C879"/>
+  <path d="M0 94c65-18 126-17 185 0 59 17 111 15 175-3v59H0V94Z" fill="#C5D6E8"/>
+  <path d="M20 115h320" stroke="#7189A8" stroke-opacity=".35" stroke-width="2" stroke-dasharray="10 10"/>
+  <path d="m45 94 13-27c4-8 11-13 21-13h66c10 0 17 4 22 13l16 27v18H45V94Z" fill="#fff" stroke="#173A67" stroke-width="4" stroke-linejoin="round"/>
+  <path d="m70 82 9-20h29v20H70Zm46-20h25c6 0 10 3 13 8l7 12h-45V62Z" fill="#89ACCE"/>
+  <circle cx="76" cy="111" r="12" fill="#10284B"/>
+  <circle cx="157" cy="111" r="12" fill="#10284B"/>
+  <path d="m185 97 8-16c3-6 7-9 14-9h34c7 0 12 3 15 9l9 16v13h-80V97Z" fill="#315B8D" stroke="#173A67" stroke-width="4" stroke-linejoin="round"/>
+  <path d="m205 91 6-14h17v14h-23Zm29-14h7c4 0 7 2 9 5l5 9h-21V77Z" fill="#B7D0E8"/>
+  <circle cx="205" cy="110" r="10" fill="#10284B"/>
+  <circle cx="247" cy="110" r="10" fill="#10284B"/>
+  <path d="M18 45h28m-14-14v28" stroke="#315B8D" stroke-linecap="round" stroke-width="3" opacity=".55"/>
+  <path d="M323 63h19m-9-9v19" stroke="#315B8D" stroke-linecap="round" stroke-width="3" opacity=".55"/>
+</svg>

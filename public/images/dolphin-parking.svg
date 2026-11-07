@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" fill="none">
+  <title>Estacionamiento Dolphin en Puebla</title>
+  <defs>
+    <linearGradient id="sky" x1="380" y1="0" x2="380" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D9E8FA"/>
+      <stop offset="1" stop-color="#F4F7FC"/>
+    </linearGradient>
+    <linearGradient id="road" x1="380" y1="325" x2="380" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#536D91"/>
+      <stop offset="1" stop-color="#19365F"/>
+    </linearGradient>
+    <linearGradient id="car" x1="390" y1="250" x2="390" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#C9D8EA"/>
+    </linearGradient>
+    <filter id="shadow" x="125" y="215" width="545" height="250" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="13"/>
+    </filter>
+  </defs>
+  <rect width="760" height="520" rx="32" fill="url(#sky)"/>
+  <circle cx="616" cy="93" r="44" fill="#F3C879"/>
+  <circle cx="616" cy="93" r="62" stroke="#F3C879" stroke-opacity=".25" stroke-width="2"/>
+  <path d="M0 278c93-57 157-55 244-14 68 32 124 39 194 14 95-35 179-38 322 22v105H0V278Z" fill="#A8C6DF"/>
+  <path d="M0 326c111-51 202-45 291-14 86 31 160 30 242-3 81-33 153-24 227 3v208H0V326Z" fill="#6F9CB8"/>
+  <path d="M0 375h760v145H0z" fill="url(#road)"/>
+  <path d="M0 412h760" stroke="#DCE8F4" stroke-opacity=".55" stroke-width="3" stroke-dasharray="18 18"/>
+  <path d="M76 226h113v149H76z" fill="#F8FBFF"/>
+  <path d="M63 226h139l-70-57-69 57Z" fill="#173A67"/>
+  <path d="M91 248h29v37H91zm54 0h29v37h-29zm-54 57h29v42H91zm54 0h29v42h-29z" fill="#A9C6E2"/>
+  <path d="M222 255h87v120h-87z" fill="#E9F0F8"/>
+  <path d="M211 255h109l-54-43-55 43Z" fill="#315B8D"/>
+  <path d="M240 273h20v28h-20zm32 0h20v28h-20zm-32 44h20v40h-20zm32 0h20v40h-20z" fill="#9DB9D6"/>
+  <path d="M518 375V215" stroke="#315B8D" stroke-width="8" stroke-linecap="round"/>
+  <path d="m518 185 18 32h-36l18-32Z" fill="#315B8D"/>
+  <path d="M504 375v-51h29v51" fill="#EAF1F8"/>
+  <path d="m489 324 30-45 30 45" stroke="#315B8D" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="405" cy="414" rx="245" ry="28" fill="#0C2445" fill-opacity=".26" filter="url(#shadow)"/>
+  <path d="m189 365 37-77c11-22 31-35 57-35h190c28 0 49 12 63 35l45 77v61H189v-61Z" fill="url(#car)" stroke="#173A67" stroke-width="8" stroke-linejoin="round"/>
+  <path d="m252 338 23-49c5-11 13-16 26-16h72v65H252Zm138-65h60c16 0 28 7 36 21l26 44H390v-65Z" fill="#6E9BC1"/>
+  <path d="M253 338h256M184 371h47m336 0h44" stroke="#173A67" stroke-width="8" stroke-linecap="round"/>
+  <path d="M558 351h25m-394 0h-24" stroke="#F0B85A" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="270" cy="419" r="37" fill="#10284B"/>
+  <circle cx="270" cy="419" r="16" fill="#A9C1D8"/>
+  <circle cx="513" cy="419" r="37" fill="#10284B"/>
+  <circle cx="513" cy="419" r="16" fill="#A9C1D8"/>
+  <rect x="34" y="34" width="171" height="54" rx="16" fill="#fff" fill-opacity=".88"/>
+  <circle cx="63" cy="61" r="17" fill="#173A67"/>
+  <path d="M57 50h7a11 11 0 1 1 0 22h-7V50Zm7 5h-2v12h2a6 6 0 1 0 0-12Z" fill="#fff"/>
+  <text x="89" y="58" fill="#173A67" font-family="Arial,sans-serif" font-size="15" font-weight="700">Dolphin</text>
+  <text x="89" y="76" fill="#536D91" font-family="Arial,sans-serif" font-size="10">ESTACIONAMIENTO</text>
+</svg>
