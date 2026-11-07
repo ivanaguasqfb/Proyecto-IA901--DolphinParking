@@ -6,6 +6,10 @@ const suggestions = document.querySelectorAll(".suggestion");
 const attachmentInput = document.querySelector("#attachment-input");
 const attachmentPreview = document.querySelector("#attachment-preview");
 const attachmentStatus = document.querySelector("#attachment-status");
+const chatApiUrl =
+  window.location.hostname === "ivanaguasqfb.github.io"
+    ? "https://dolphinparking-ia-2026.azurewebsites.net/api/chat"
+    : "/api/chat";
 
 const maxAttachmentBytes = 5 * 1024 * 1024;
 const allowedFileTypes = new Map([
@@ -134,7 +138,7 @@ async function sendMessage(message, fileToSend = selectedFile) {
           }
         : {}),
     };
-    const response = await fetch("/api/chat", {
+    const response = await fetch(chatApiUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),

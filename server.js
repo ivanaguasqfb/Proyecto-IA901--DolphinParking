@@ -119,12 +119,34 @@ function validateAttachment(attachment) {
   };
 }
 
-export function createApp({ openai, agentName }) {
+export function createApp({
+  openai,
+  agentName,
+  corsAllowedOrigins = [],
+}) {
   if (!openai || !agentName) {
     throw new Error("Se requieren un cliente de Foundry y el nombre del agente.");
   }
 
   const app = express();
+  const allowedOrigins = new Set(corsAllowedOrigins);
+  app.use("/api", (request, response, next) => {
+    const origin = request.get("Origin");
+
+    if (origin && allowedOrigins.has(origin)) {
+      response.set("Access-Control-Allow-Origin", origin);
+      response.set("Access-Control-Allow-Methods", "POST, OPTIONS");
+      response.set("Access-Control-Allow-Headers", "Content-Type");
+      response.vary("Origin");
+    }
+
+    if (request.method === "OPTIONS") {
+      response.sendStatus(origin && !allowedOrigins.has(origin) ? 403 : 204);
+      return;
+    }
+
+    next();
+  });
   const smallJsonParser = express.json({ limit: "16kb" });
   app.use((request, response, next) => {
     if (request.path === "/api/chat") {
@@ -275,7 +297,11 @@ async function startServer() {
     new DefaultAzureCredential(),
   );
   const openai = projectClient.getOpenAIClient();
-  const app = createApp({ openai, agentName });
+  const corsAllowedOrigins =
+    process.env.CORS_ALLOWED_ORIGINS?.split(",")
+      .map((origin) => origin.trim())
+      .filter(Boolean) ?? [];
+  const app = createApp({ openai, agentName, corsAllowedOrigins });
   const port = process.env.PORT || 3000;
 
   app.listen(port, () => {

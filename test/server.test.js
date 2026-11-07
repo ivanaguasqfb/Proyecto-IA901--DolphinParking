@@ -52,6 +52,7 @@ test("GET /health y los archivos del frontend se sirven correctamente", async ()
     assert.equal(pageResponse.status, 200);
     const page = await pageResponse.text();
     assert.match(page, /Estacionamiento <strong>Dolphin<\/strong>/);
+    assert.match(page, /href="\.\/styles\.css"/);
     assert.match(page, /accept="\.pdf,application\/pdf/);
     assert.match(page, /se enviará a Microsoft Foundry para su análisis/i);
     assert.match(page, /maps\.google\.com\/maps\?q=19\.0489902%2C-98\.2052981/);
@@ -76,6 +77,42 @@ test("GET /health y los archivos del frontend se sirven correctamente", async ()
       assert.match(imageResponse.headers.get("content-type"), /^image\//);
       assert.ok((await imageResponse.arrayBuffer()).byteLength > 0);
     }
+  });
+});
+
+test("POST /api/chat permite CORS a GitHub Pages y responde preflight", async () => {
+  const origin = "https://ivanaguasqfb.github.io";
+  const app = createApp({
+    openai: createFakeOpenAI(),
+    agentName: "test-agent",
+    corsAllowedOrigins: [origin],
+  });
+
+  await withServer(app, async (baseUrl) => {
+    const preflight = await fetch(`${baseUrl}/api/chat`, {
+      method: "OPTIONS",
+      headers: {
+        Origin: origin,
+        "Access-Control-Request-Method": "POST",
+        "Access-Control-Request-Headers": "content-type",
+      },
+    });
+    assert.equal(preflight.status, 204);
+    assert.equal(preflight.headers.get("access-control-allow-origin"), origin);
+    assert.equal(
+      preflight.headers.get("access-control-allow-methods"),
+      "POST, OPTIONS",
+    );
+
+    const deniedPreflight = await fetch(`${baseUrl}/api/chat`, {
+      method: "OPTIONS",
+      headers: {
+        Origin: "https://example.com",
+        "Access-Control-Request-Method": "POST",
+      },
+    });
+    assert.equal(deniedPreflight.status, 403);
+    assert.equal(deniedPreflight.headers.get("access-control-allow-origin"), null);
   });
 });
 
